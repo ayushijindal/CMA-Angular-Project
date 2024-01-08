@@ -1,0 +1,37 @@
+<h1>Client Creation Form</h1>
+<div>
+    <input class="m-3 form-label" type="text" [(ngModel)]="newClient.clientName" placeholder="Client Name">
+    <br>
+    <input class="m-3 form-label" type="text" [(ngModel)]="newClient.contactPerson" placeholder="Contact Person">
+    <br>
+    <input class="m-3 form-label" type="email" [(ngModel)]="newClient.email" placeholder="Email">
+    <br>
+    <input class="m-3 form-label" type="text" [(ngModel)]="newClient.phoneNumber" placeholder="Phone Number">
+    <br>
+    <button class="btn btn-success m-3" (click)="onSubmit()">Submit</button>
+  </div>
+  
+
+  <h3>Clients List</h3>
+  <table class="table table-bordered table-striped">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Contact Person</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let client of submittedClients; let i = index">
+            <td>{{ client.clientName }}</td>
+            <td>{{ client.contactPerson }}</td>
+            <td> {{ client.email }}</td>
+            <td>{{ client.phoneNumber }}</td>
+            <button class="btn btn-danger ms-2" (click)="deleteClient(i)">Delete</button>
+        </tr>
+      </tbody>
+
+    </table>
+  
